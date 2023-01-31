@@ -3,71 +3,109 @@
 
 <head>
     <title>Churn Prediction Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
-    <style>
-        #churnChart1,
-        #churnChart2 {
-            width: 400px;
-            height: 500px;
-            display: inline-block;
-            margin: 20px;
-        }
-
-        .large-text {
-            font-size: 24px;
-            font-weight: bold;
-        }
-    </style>
+    <!-- Novas fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Churn Prediction Overview</h1>
-    <p>Displaying data from your data.py file. If there are errors, please verify your data.py data generation.</p>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>Churn Prediction Overview</h1>
+        </header>
 
-    <!-- Display the average churn probability -->
-    <p class="large-text">Average Churn Probability: {{ avg_churn_prob | round(2) }}</p>
+        <section class="metrics-container">
+            <div class="metric-card">
+                <h2>Average Churn Probability</h2>
+                <p class="metric-value">{{ avg_churn_prob | round(2) }}</p>
+            </div>
+            <div class="metric-card">
+                <h2>High-Risk Customers</h2>
+                <p class="metric-value">{{ high_risk_customers }}</p>
+            </div>
+        </section>
 
-    <p class="large-text">High-risk customers: {{ high_risk_customers }}</p>
-
-    <div id="churnChart1"></div>
-    <div id="churnChart2"></div>
+        <section class="charts-container">
+            <div class="chart-card">
+                <div id="churnChart1"></div>
+            </div>
+            <div class="chart-card">
+                <div id="churnChart2"></div>
+            </div>
+        </section>
+    </div>
 
     <script>
         const churnRateByState = {{ churn_rate_by_state | tojson }};
         const highRiskByState = {{ high_risk_by_state | tojson }};
 
-        
+        // Chart 1: Churn Rate by State
         const data1 = [
             {
                 x: churnRateByState.map(state => state.state),
                 y: churnRateByState.map(state => state.churn_rate),
-                type: 'bar'
+                type: 'bar',
+                marker: {
+                    color: '#3A7CA5' // Nova Cor de Destaque Primária
+                }
             }
         ];
-
         const layout1 = {
-            title: 'Churn Rate by State',
-            xaxis: { title: 'State' },
-            yaxis: { title: 'Churn Rate' }
+            title: {
+                text: 'Churn Rate by State',
+                font: { family: 'Montserrat, sans-serif', size: 18, color: '#2A3B4C' }
+            },
+            xaxis: { 
+                title: 'State',
+                titlefont: { family: 'Montserrat, sans-serif', color: '#2A3B4C' },
+                tickfont: { family: 'Open Sans, sans-serif', color: '#3D4F60' }
+            },
+            yaxis: { 
+                title: 'Churn Rate',
+                titlefont: { family: 'Montserrat, sans-serif', color: '#2A3B4C' },
+                tickfont: { family: 'Open Sans, sans-serif', color: '#3D4F60' }
+            },
+            font: { family: 'Open Sans, sans-serif', color: '#3D4F60' }, // Fonte padrão para o gráfico
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)'
         };
+        Plotly.newPlot('churnChart1', data1, layout1, {responsive: true});
 
-        Plotly.newPlot('churnChart1', data1, layout1);
-
+        // Chart 2: High Risk by State
         const data2 = [
             {
                 x: highRiskByState.map(state => state.state),
                 y: highRiskByState.map(state => state.high_risk),
-                type: 'bar'
+                type: 'bar',
+                marker: {
+                    color: '#80ADA0' // Nova Cor de Destaque Secundária (Verde-azulado suave)
+                }
             }
         ];
-
         const layout2 = {
-            title: 'High Risk by State',
-            xaxis: { title: 'State' },
-            yaxis: { title: 'High Risk' }
+            title: {
+                text: 'High Risk by State',
+                font: { family: 'Montserrat, sans-serif', size: 18, color: '#2A3B4C' }
+            },
+            xaxis: { 
+                title: 'State',
+                titlefont: { family: 'Montserrat, sans-serif', color: '#2A3B4C' },
+                tickfont: { family: 'Open Sans, sans-serif', color: '#3D4F60' }
+            },
+            yaxis: { 
+                title: 'High Risk',
+                titlefont: { family: 'Montserrat, sans-serif', color: '#2A3B4C' },
+                tickfont: { family: 'Open Sans, sans-serif', color: '#3D4F60' }
+            },
+            font: { family: 'Open Sans, sans-serif', color: '#3D4F60' }, // Fonte padrão para o gráfico
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)'
         };
-
-        Plotly.newPlot('churnChart2', data2, layout2);
+        Plotly.newPlot('churnChart2', data2, layout2, {responsive: true});
     </script>
 </body>
 

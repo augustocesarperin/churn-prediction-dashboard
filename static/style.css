@@ -1,0 +1,128 @@
+/* static/style.css */
+body {
+    font-family: 'Open Sans', sans-serif; /* Nova fonte para o corpo */
+    background-color: #EAEBEC; /* Novo Fundo Principal (cinza muito claro) */
+    color: #3D4F60; /* Novo Texto Principal (azul-acinzentado escuro) */
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px; /* Aumentando o padding do container principal */
+    background-color: #FFFFFF; /* Fundo branco para o container principal */
+    border-radius: 12px; /* Aumentando o border-radius */
+    box-shadow: 0 6px 18px rgba(42, 59, 76, 0.1); /* Sombra mais sutil e azulada */
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 40px; /* Aumentando a margem inferior */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #DDE2E7; /* Linha separadora mais suave */
+}
+
+.dashboard-header h1 {
+    font-family: 'Montserrat', sans-serif; /* Nova fonte para o título principal */
+    color: #2A3B4C; /* Novo tom para o título principal */
+    font-size: 2.2em; /* Aumentando um pouco o título */
+    font-weight: 700;
+    margin: 0;
+}
+
+.metrics-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 25px; /* Ajustando o gap */
+    margin-bottom: 40px; /* Aumentando a margem inferior */
+}
+
+.metric-card {
+    background-color: #FFFFFF;
+    padding: 25px; /* Aumentando o padding interno */
+    border-radius: 10px; /* Aumentando o border-radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Nova sombra mais sutil */
+    text-align: left; /* Alinhando texto à esquerda dentro do card */
+    flex-basis: calc(50% - 40px);
+    min-width: 250px;
+    /* border-left: 5px solid #4A90E2; Removendo a borda esquerda colorida */
+    border: 1px solid #E0E0E0; /* Adicionando uma borda sutil geral */
+}
+
+.metric-card h2 {
+    font-family: 'Montserrat', sans-serif; /* Nova fonte */
+    font-size: 0.95em; /* Reduzindo um pouco para dar mais destaque ao valor */
+    color: #5C6F82; /* Cor mais suave para o título da métrica */
+    margin-top: 0;
+    margin-bottom: 8px; /* Ajustando margem */
+    font-weight: 500;
+}
+
+.metric-card .metric-value {
+    font-family: 'Montserrat', sans-serif; /* Usando Montserrat para consistência nos destaques */
+    font-size: 2.4em; /* Aumentando o valor */
+    font-weight: 700;
+    color: #2A3B4C; /* Cor principal do título */
+    margin: 0;
+    line-height: 1.2;
+}
+
+.charts-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 25px; /* Ajustando o gap */
+}
+
+.chart-card {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px; /* Aumentando o border-radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Nova sombra */
+    flex-basis: calc(50% - 40px);
+    min-width: 380px; /* Ajustando a largura mínima */
+    border: 1px solid #E0E0E0; /* Adicionando uma borda sutil geral */
+}
+
+/* Media query para telas menores (empilhar cards) */
+@media (max-width: 860px) { /* Ajustando o breakpoint para melhor acomodação dos cards lado a lado */
+    .metrics-container,
+    .charts-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .metric-card,
+    .chart-card {
+        flex-basis: 100%;
+        width: 95%; /* Usar porcentagem para melhor fluidez */
+        max-width: 550px; /* Limitar largura máxima */
+        margin-bottom: 20px; /* Adicionar margem inferior quando empilhado */
+    }
+    .metric-card:last-child,
+    .chart-card:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-container {
+        padding: 15px;
+    }
+    .dashboard-header h1 {
+        font-size: 1.8em;
+    }
+    .metric-card .metric-value {
+        font-size: 2em;
+    }
+    .chart-card {
+        min-width: auto; /* Permitir que encolha mais */
+        padding: 15px;
+    }
+    .metric-card {
+        padding: 20px;
+    }
+}
