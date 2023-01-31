@@ -1,8 +1,7 @@
-/* static/style.css */
 body {
-    font-family: 'Open Sans', sans-serif; /* Nova fonte para o corpo */
-    background-color: #EAEBEC; /* Novo Fundo Principal (cinza muito claro) */
-    color: #3D4F60; /* Novo Texto Principal (azul-acinzentado escuro) */
+    font-family: 'Open Sans', sans-serif;
+    background-color: #EAEBEC;
+    color: #3D4F60;
     margin: 0;
     padding: 20px;
     line-height: 1.6;
@@ -11,23 +10,23 @@ body {
 .dashboard-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 30px; /* Aumentando o padding do container principal */
-    background-color: #FFFFFF; /* Fundo branco para o container principal */
-    border-radius: 12px; /* Aumentando o border-radius */
-    box-shadow: 0 6px 18px rgba(42, 59, 76, 0.1); /* Sombra mais sutil e azulada */
+    padding: 30px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(42, 59, 76, 0.1);
 }
 
 .dashboard-header {
     text-align: center;
-    margin-bottom: 40px; /* Aumentando a margem inferior */
+    margin-bottom: 40px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #DDE2E7; /* Linha separadora mais suave */
+    border-bottom: 1px solid #DDE2E7;
 }
 
 .dashboard-header h1 {
-    font-family: 'Montserrat', sans-serif; /* Nova fonte para o título principal */
-    color: #2A3B4C; /* Novo tom para o título principal */
-    font-size: 2.2em; /* Aumentando um pouco o título */
+    font-family: 'Montserrat', sans-serif;
+    color: #2A3B4C;
+    font-size: 2.2em;
     font-weight: 700;
     margin: 0;
 }
@@ -36,36 +35,41 @@ body {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 25px; /* Ajustando o gap */
-    margin-bottom: 40px; /* Aumentando a margem inferior */
+    gap: 25px;
+    margin-bottom: 40px;
 }
 
 .metric-card {
     background-color: #FFFFFF;
-    padding: 25px; /* Aumentando o padding interno */
-    border-radius: 10px; /* Aumentando o border-radius */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Nova sombra mais sutil */
-    text-align: left; /* Alinhando texto à esquerda dentro do card */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: left;
     flex-basis: calc(50% - 40px);
     min-width: 250px;
-    /* border-left: 5px solid #4A90E2; Removendo a borda esquerda colorida */
-    border: 1px solid #E0E0E0; /* Adicionando uma borda sutil geral */
+    border: 1px solid #E0E0E0;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .metric-card h2 {
-    font-family: 'Montserrat', sans-serif; /* Nova fonte */
-    font-size: 0.95em; /* Reduzindo um pouco para dar mais destaque ao valor */
-    color: #5C6F82; /* Cor mais suave para o título da métrica */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95em;
+    color: #5C6F82;
     margin-top: 0;
-    margin-bottom: 8px; /* Ajustando margem */
+    margin-bottom: 8px;
     font-weight: 500;
 }
 
 .metric-card .metric-value {
-    font-family: 'Montserrat', sans-serif; /* Usando Montserrat para consistência nos destaques */
-    font-size: 2.4em; /* Aumentando o valor */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4em;
     font-weight: 700;
-    color: #2A3B4C; /* Cor principal do título */
+    color: #2A3B4C;
     margin: 0;
     line-height: 1.2;
 }
@@ -74,21 +78,26 @@ body {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 25px; /* Ajustando o gap */
+    gap: 25px;
 }
 
 .chart-card {
     background-color: #FFFFFF;
     padding: 20px;
-    border-radius: 10px; /* Aumentando o border-radius */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Nova sombra */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     flex-basis: calc(50% - 40px);
-    min-width: 380px; /* Ajustando a largura mínima */
-    border: 1px solid #E0E0E0; /* Adicionando uma borda sutil geral */
+    min-width: 380px;
+    border: 1px solid #E0E0E0;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-/* Media query para telas menores (empilhar cards) */
-@media (max-width: 860px) { /* Ajustando o breakpoint para melhor acomodação dos cards lado a lado */
+.chart-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 860px) {
     .metrics-container,
     .charts-container {
         flex-direction: column;
@@ -98,9 +107,9 @@ body {
     .metric-card,
     .chart-card {
         flex-basis: 100%;
-        width: 95%; /* Usar porcentagem para melhor fluidez */
-        max-width: 550px; /* Limitar largura máxima */
-        margin-bottom: 20px; /* Adicionar margem inferior quando empilhado */
+        width: 95%;
+        max-width: 550px;
+        margin-bottom: 20px;
     }
     .metric-card:last-child,
     .chart-card:last-child {
@@ -119,7 +128,7 @@ body {
         font-size: 2em;
     }
     .chart-card {
-        min-width: auto; /* Permitir que encolha mais */
+        min-width: auto;
         padding: 15px;
     }
     .metric-card {

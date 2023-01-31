@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
-    <!-- Novas fontes do Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -43,14 +42,13 @@
         const churnRateByState = {{ churn_rate_by_state | tojson }};
         const highRiskByState = {{ high_risk_by_state | tojson }};
 
-        // Chart 1: Churn Rate by State
         const data1 = [
             {
                 x: churnRateByState.map(state => state.state),
                 y: churnRateByState.map(state => state.churn_rate),
                 type: 'bar',
                 marker: {
-                    color: '#3A7CA5' // Nova Cor de Destaque Primária
+                    color: '#3A7CA5'
                 }
             }
         ];
@@ -59,30 +57,29 @@
                 text: 'Churn Rate by State',
                 font: { family: 'Montserrat, sans-serif', size: 18, color: '#2A3B4C' }
             },
-            xaxis: { 
+            xaxis: {
                 title: 'State',
                 titlefont: { family: 'Montserrat, sans-serif', color: '#2A3B4C' },
                 tickfont: { family: 'Open Sans, sans-serif', color: '#3D4F60' }
             },
-            yaxis: { 
+            yaxis: {
                 title: 'Churn Rate',
                 titlefont: { family: 'Montserrat, sans-serif', color: '#2A3B4C' },
                 tickfont: { family: 'Open Sans, sans-serif', color: '#3D4F60' }
             },
-            font: { family: 'Open Sans, sans-serif', color: '#3D4F60' }, // Fonte padrão para o gráfico
+            font: { family: 'Open Sans, sans-serif', color: '#3D4F60' },
             paper_bgcolor: 'rgba(0,0,0,0)',
             plot_bgcolor: 'rgba(0,0,0,0)'
         };
         Plotly.newPlot('churnChart1', data1, layout1, {responsive: true});
 
-        // Chart 2: High Risk by State
         const data2 = [
             {
                 x: highRiskByState.map(state => state.state),
                 y: highRiskByState.map(state => state.high_risk),
                 type: 'bar',
                 marker: {
-                    color: '#80ADA0' // Nova Cor de Destaque Secundária (Verde-azulado suave)
+                    color: '#80ADA0'
                 }
             }
         ];
@@ -91,17 +88,17 @@
                 text: 'High Risk by State',
                 font: { family: 'Montserrat, sans-serif', size: 18, color: '#2A3B4C' }
             },
-            xaxis: { 
+            xaxis: {
                 title: 'State',
                 titlefont: { family: 'Montserrat, sans-serif', color: '#2A3B4C' },
                 tickfont: { family: 'Open Sans, sans-serif', color: '#3D4F60' }
             },
-            yaxis: { 
+            yaxis: {
                 title: 'High Risk',
                 titlefont: { family: 'Montserrat, sans-serif', color: '#2A3B4C' },
                 tickfont: { family: 'Open Sans, sans-serif', color: '#3D4F60' }
             },
-            font: { family: 'Open Sans, sans-serif', color: '#3D4F60' }, // Fonte padrão para o gráfico
+            font: { family: 'Open Sans, sans-serif', color: '#3D4F60' },
             paper_bgcolor: 'rgba(0,0,0,0)',
             plot_bgcolor: 'rgba(0,0,0,0)'
         };
