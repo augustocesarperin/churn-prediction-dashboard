@@ -11,16 +11,18 @@ A Flask web app built during Microsoft's Automation and Scripting with Python co
 
 ## Running Locally
 
-1.  ```bash
-    git clone https://github.com/augustocesarperin/churn-prediction-dashboard.git
-    ```
-2.  ```bash
-    cd churn-prediction-dashboard
-    ```
-3.  ```bash
-    pip install Flask scikit-learn pandas
-    ```
-4.  ```bash
-    python app.py
-    ```
-    Access at: `http://127.0.0.1:5000`
+```text
+git clone https://github.com/augustocesarperin/churn-prediction-dashboard.git
+```
+
+```text
+cd churn-prediction-dashboard
+```
+
+```text
+pip install Flask scikit-learn pandas
+```
+
+```text
+python app.py
+```
