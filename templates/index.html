@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
@@ -18,12 +19,12 @@
         </header>
 
         <section class="metrics-container">
-            <div class="metric-card">
-                <h2>Average Churn Probability</h2>
+            <div class="metric-card metric-card-highlight">
+                <h2><i class="fas fa-percent"></i> Average Churn Probability</h2>
                 <p class="metric-value">{{ avg_churn_prob | round(2) }}</p>
             </div>
             <div class="metric-card">
-                <h2>High-Risk Customers</h2>
+                <h2><i class="fas fa-users"></i> High-Risk Customers</h2>
                 <p class="metric-value">{{ high_risk_customers }}</p>
             </div>
         </section>
@@ -55,17 +56,17 @@
         const layout1 = {
             title: {
                 text: 'Churn Rate by State',
-                font: { family: 'Montserrat, sans-serif', size: 18, color: '#2A3B4C' }
+                font: { family: 'Montserrat, sans-serif', size: 16, color: '#2A3B4C' }
             },
             xaxis: {
                 title: 'State',
-                titlefont: { family: 'Montserrat, sans-serif', color: '#2A3B4C' },
-                tickfont: { family: 'Open Sans, sans-serif', color: '#3D4F60' }
+                titlefont: { family: 'Montserrat, sans-serif', color: '#2A3B4C', size: 13 },
+                tickfont: { family: 'Open Sans, sans-serif', color: '#3D4F60', size: 11 }
             },
             yaxis: {
                 title: 'Churn Rate',
-                titlefont: { family: 'Montserrat, sans-serif', color: '#2A3B4C' },
-                tickfont: { family: 'Open Sans, sans-serif', color: '#3D4F60' }
+                titlefont: { family: 'Montserrat, sans-serif', color: '#2A3B4C', size: 13 },
+                tickfont: { family: 'Open Sans, sans-serif', color: '#3D4F60', size: 11 }
             },
             font: { family: 'Open Sans, sans-serif', color: '#3D4F60' },
             paper_bgcolor: 'rgba(0,0,0,0)',
@@ -86,17 +87,17 @@
         const layout2 = {
             title: {
                 text: 'High Risk by State',
-                font: { family: 'Montserrat, sans-serif', size: 18, color: '#2A3B4C' }
+                font: { family: 'Montserrat, sans-serif', size: 16, color: '#2A3B4C' }
             },
             xaxis: {
                 title: 'State',
-                titlefont: { family: 'Montserrat, sans-serif', color: '#2A3B4C' },
-                tickfont: { family: 'Open Sans, sans-serif', color: '#3D4F60' }
+                titlefont: { family: 'Montserrat, sans-serif', color: '#2A3B4C', size: 13 },
+                tickfont: { family: 'Open Sans, sans-serif', color: '#3D4F60', size: 11 }
             },
             yaxis: {
                 title: 'High Risk',
-                titlefont: { family: 'Montserrat, sans-serif', color: '#2A3B4C' },
-                tickfont: { family: 'Open Sans, sans-serif', color: '#3D4F60' }
+                titlefont: { family: 'Montserrat, sans-serif', color: '#2A3B4C', size: 13 },
+                tickfont: { family: 'Open Sans, sans-serif', color: '#3D4F60', size: 11 }
             },
             font: { family: 'Open Sans, sans-serif', color: '#3D4F60' },
             paper_bgcolor: 'rgba(0,0,0,0)',
